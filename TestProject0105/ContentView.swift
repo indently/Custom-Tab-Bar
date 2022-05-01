@@ -19,10 +19,15 @@ struct ContentView: View {
             VStack {
                 TabView(selection: $tabSelected) {
                     ForEach(Tab.allCases, id: \.rawValue) { tab in
-                        Text("\(tab.rawValue.capitalized)")
-                            .bold()
-                            .tag(tab)
-                            .animation(nil, value: tabSelected)
+                        HStack {
+                            Image(systemName: tab.rawValue)
+                            Text("\(tab.rawValue.capitalized)")
+                                .bold()
+                                
+                                .animation(nil, value: tabSelected)
+                        }
+                        .tag(tab)
+                        
                     }
                 }
             }
